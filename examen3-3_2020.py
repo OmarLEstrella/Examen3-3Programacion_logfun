@@ -16,7 +16,6 @@
 	z = [e for e in a]
 	print(z)
 	# [2, 3 ,5 ,7 ]
-    print(" ")
 """
 print("Ejercicio Generadores Primos")
 """
@@ -58,8 +57,6 @@ a = genBadaBoom(10)
 z = [e for e in a]
 print(z)
 """
-
-
 Combinaciones <Comprensión de listas> 30pts
 
 	Una tienda de ropa quiere saber cuantos conjuntos se pueden crear
@@ -69,19 +66,30 @@ Combinaciones <Comprensión de listas> 30pts
 
 	1) Obtenga una lista con todos los conjuntos posibles e imprimala en pantalla
 	2) imprima un mensaje donde mencione la cantidad de conjuntos posibles
-
 """
+print("")
+print("Ejercicio Combinaciones")
+camisas = ["Camisa roja","Camisa negra","Camisa azul","Camisa morada","Camisa cafe"]
+pantalones = ["Pantalon negro","Pantalon azul","Pantalon cafe obscuro","Pantalon crema"]
+accesorios = ["cinturon","tirantes","lentes","fedora"]
 
+COMBINACIONES = [ [a,b,c] for a in camisas for b in pantalones for c in accesorios]
+print(COMBINACIONES)
+print("Cantidad de Combinaciones Posibles",len(COMBINACIONES))
 """
 
 ¿Fedora?  <Comprensión de listas >  15 pts
-
 	Del problema anterior imprima una lista que tenga todos los conjuntos
 	que incluyen un sombrero fedora y tambien despliegue su longitud
-
-
 """
-
+print("")
+print("Ejercicio ¿Fedora?")
+camisas = ["Camisa roja","Camisa negra","Camisa azul","Camisa morada","Camisa cafe"]
+pantalones = ["Pantalon negro","Pantalon azul","Pantalon cafe obscuro","Pantalon crema"]
+accesorios = ["fedora"]
+COMBINACIONES = [ [a,b,c] for a in camisas for b in pantalones for c in accesorios]
+print(COMBINACIONES)
+print("Combinaciones Disponibles",len(COMBINACIONES))
 """
 <Monads>   30 pts
 
