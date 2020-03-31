@@ -32,7 +32,7 @@ def gprimo(N):
             yield n
         n = n + 1
 
-a = gprimo(100)
+a = gprimo(10)
 z = [e for e in a]
 print(z)
 """
