@@ -18,6 +18,23 @@
 	# [2, 3 ,5 ,7 ]
 """
 print("Ejercicio Generadores Primos")
+def gprimo(N):
+    def esPrimo(n):
+        if n <= 1:
+            return False
+        for i in range(2,n):
+            if n % i == 0:
+                return False
+        return True
+    n = 0
+    while(n <= N):
+        if esPrimo(n):
+            yield n
+        n = n + 1
+
+a = gprimo(100)
+z = [e for e in a]
+print(z)
 """
 Bada Boom!!! <generadores> 20 pts
 
