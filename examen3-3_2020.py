@@ -1,6 +1,6 @@
 """
-    Lopez Lira Alexis
-    Lopez Estrella Omar
+    Lopez Lira Alexis   16590484
+    Lopez Estrella Omar 16590486
 
 
  Primos  <generadores>  30 pts
