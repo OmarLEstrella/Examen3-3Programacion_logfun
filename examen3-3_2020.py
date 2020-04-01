@@ -11,7 +11,6 @@
 	def gprimo(N):
 		pass
 
-
 	a = gprimo(10)
 	z = [e for e in a]
 	print(z)
@@ -103,10 +102,11 @@ print("")
 print("Ejercicio ¿Fedora?")
 camisas = ["Camisa roja","Camisa negra","Camisa azul","Camisa morada","Camisa cafe"]
 pantalones = ["Pantalon negro","Pantalon azul","Pantalon cafe obscuro","Pantalon crema"]
-accesorios = ["fedora"]
+accesorios = ["cinturon","tirantes","lentes","fedora"]
 COMBINACIONES = [ [a,b,c] for a in camisas for b in pantalones for c in accesorios]
-print(COMBINACIONES)
-print("Combinaciones Disponibles",len(COMBINACIONES))
+COMBINACIONES_FEDORA = [i for i in COMBINACIONES if i[2] == "fedora"]
+print(COMBINACIONES_FEDORA)
+print("Combinaciones Disponibles",len(COMBINACIONES_FEDORA))
 """
 <Monads>   30 pts
 
