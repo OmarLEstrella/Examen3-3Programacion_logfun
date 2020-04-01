@@ -133,8 +133,106 @@ letra.
 Nota: Pueden ayudarse de funciones recursivas y compresiones de lista.
 
 """
+print(" ")
+print(" Ejercicio Monads Lacrimosa")
 
+from functools import reduce
+print('\n')
+#Este metodo me hace el conteo de la cantidad de letras que aparecen
+# en el texto
+def contar_veces2(elemento, lista):
+    #contador
+    veces = 0
+    #Empieza a recorrer la lista acorde el elemento que le mando
+    for i in lista:
+        if elemento == i:
+            veces += 1
+    #Le sumo uno porque por lo menos aparece una vez en todo el texto esa letra
+    return veces + 1
 
+def unicos2(l, letras = False):
+    if not letras:
+        letras = []
+    c = []
+    n = []
+    if not l:
+        return []
+    contar = []
+    primero = l[0]
+    #Extraigo cada caracter del texto
+    for i in primero:
+
+        if not i in c:
+            if i != ' ':
+                if i != '\n':
+                    c.append(i)
+        else:
+            n.append(i)
+    if len(l) == 1:
+        return letras
+    else:
+        #cuento cuantas veces aparce cada letra NO REPETIDA en el texto
+        for a in c:
+            #usando la funcion contar_veces, aqui le mando
+            #la letra a evaluar y la lista
+            contar.append(contar_veces2(a, n))
+        #Cuenta el numero total de letras usando reduce
+        v = reduce(lambda a,b: a + b, contar)
+        #creo una lista de tuplas para relacionar cada elemento con su valor
+        #de acuerdo a su indice entre las listas c y contar, ya
+        #que son del mismo tamaño
+        letras += [list(zip(c, contar))]
+        print('Lista de letras que existen y su cantidad\n',letras)
+        #La probabilidad es 1/Num.letras  porque por lo menos, esa letra
+        #aparece una vez en todo el texto
+
+        print('Probabilidad: 1 /',v,'En la cadena -->',primero,'\n')
+        return unicos2(l[1:], letras)
+
+letra = ['Die Suche endet jetzt und hier',
+         'Gestein kalt und nass',
+         'Granit in Deiner Brust',
+         'Der Stein der Dich zerdrückt',
+         'Der Fels der Dich umgibt',
+         'Aus dem gehauen Du doch bist',
+         'Despiertate te busco',
+         'Mi corazon abreté te libro',
+         'Elevate mi luz y prende mi llama',
+         'Si a ti, yo se, te encontrare'
+         ]
+v = unicos2(letra)
+#Esta es la lista con las otras listas dentro. Dentro de cada lista
+#hay tuplas con la letra y el numero de veces que se repite.
+print('Lista de letras que existen y su cantidad\n',v)
+print(" ")
+print("\nLetras con menos apariciones en el texto\n")
+f1 = filter(lambda a: a[1] == 1,v[0])
+f2 = filter(lambda a: a[1] == 1,v[1])
+f3 = filter(lambda a: a[1] == 1,v[2])
+f4 = filter(lambda a: a[1] == 1,v[3])
+f5 = filter(lambda a: a[1] == 1,v[4])
+f6 = filter(lambda a: a[1] == 1,v[5])
+f7 = filter(lambda a: a[1] == 1,v[6])
+f8 = filter(lambda a: a[1] == 1,v[7])
+f9 = filter(lambda a: a[1] == 1,v[8])
+d1 = list(f1)
+d2 = list(f2)
+d3 = list(f3)
+d4 = list(f4)
+d5 = list(f5)
+d6 = list(f6)
+d7 = list(f7)
+d8 = list(f8)
+d9 = list(f9)
+print("En la linea 1",d1)
+print("En la linea 2",d2)
+print("En la linea 3",d3)
+print("En la linea 4",d4)
+print("En la linea 5",d5)
+print("En la linea 6",d6)
+print("En la linea 7",d7)
+print("En la linea 8",d8)
+print("En la linea 9",d9)
 """
 <Monads>
 
@@ -160,3 +258,66 @@ letra.
 Nota: Pueden ayudarse de funciones recursivas y compresiones de lista.
 
 """
+print(" ")
+print("Ejercicio Monads Hole in my soul apocalyptica")
+print('\n')
+#Este metodo me hace el conteo de la cantidad de letras que aparecen
+# en el texto
+def contar_veces(elemento, lista):
+    #contador
+    veces = 0
+    #Empieza a recorrer la lista acorde el elemento que le mando
+    for i in lista:
+        if elemento == i:
+            veces += 1
+    #Le sumo uno porque por lo menos aparece una vez en todo el texto esa letra
+    return veces + 1
+
+def unicos(l):
+    contar = []
+    c = []
+    n = []
+    if not l:
+        return []
+    primero = l[0]
+    #Extraigo cada caracter del texto
+    for i in primero:
+        if not i in c:
+            if i != ' ':
+                if i != '\n':
+                    c.append(i)
+        else:
+            n.append(i)
+
+    #cuento cuantas veces aparce cada letra NO REPETIDA en el texto
+    for a in c:
+        #usando la funcion contar_veces, aqui le mando
+        #la letra a evaluar y la lista
+        contar.append(contar_veces(a, n))
+    #Cuenta el numero total de letras usando reduce
+    v = reduce(lambda a,b: a + b, contar)
+    #La probabilidad es 1/Num.letras  porque por lo menos, esa letra
+    #aparece una vez en todo el texto
+    print('Probabilidad: 1 /',v)
+    #creo una lista de tuplas para relacionar cada elemento con su valor
+    #de acuerdo a su indiceentre las listas c y contar ya
+    #que son del mismo tamaño
+    letras = list(zip(c, contar))
+    print('Lista de letras que existen y su cantidad\n',letras)
+
+    return letras
+
+lis = ["""There's a hole in my heart, in my life, in my
+     way And it's filled with regret and all I did, to push you away
+    If there's still a place in your life, in your heart for me
+    I would do anything, so don't ask me to leave
+    I've got a hole in my soul where you use to be
+    You're the thorn in my heart and you're killing me
+    I wish I could go back and do it all differently
+    I wish that I'd treated you differently
+    'Cause now there's a hole in my soul where you use to be"""]
+
+s = unicos(lis)
+f = filter(lambda a: a[1] == 1, s)
+d = list(f)
+print('\nLetras con menos apariciones en el texto\n',d)
